@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app =  express()
-const {Productinfo} = require('./routes/productinfo')
+const {Productinfo} = require('../routes/productinfo')
 
 app.use(express.json())
 app.use(cors())
@@ -13,4 +13,4 @@ app.get('/', (req, res) => {
 
 app.use('/productInfo', Productinfo)
 
-app.listen(3000);
+module.exports = app;
