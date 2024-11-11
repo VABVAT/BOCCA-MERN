@@ -7,6 +7,7 @@ const {ProductModel} = require('../models/products')
 
 mongoose.connect(process.env.MONGO_CONNECTION)
 router.use(cors());
+
 router.get('/', async (req, res) => {
     try{
         const products = await ProductModel.find({});

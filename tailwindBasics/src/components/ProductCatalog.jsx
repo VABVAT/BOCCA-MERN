@@ -1,13 +1,21 @@
 import { useEffect } from 'react';
 import Card from './Card.jsx'
 import useFetch from '../Hooks/useFetch.js';
+import Loader from './Loader.jsx';
 function ProductCatalog(){
-    const Products = useFetch("https://bocca-mern-gis9-pmrxijpe9-vabvats-projects.vercel.app/productInfo")
-    console.log(Products);
+    const Products = useFetch("https://bocca-mern-gis9.vercel.app/productInfo")
+    const prodInfo = Products.products;
+    // console.log(Products);
     return(<>
-    <div className='mt-12 mb-12 flex flex-wrap flex-row justify-evenly overflow-hidden'>
-        {/* {Array(Products.products.length).fill(0).map((_, index) => (<div> <Card text={prodInfo[index].text} price={prodInfo[index].price}/> </div>))} */}
-    </div>
+        <div className="mt-12 mb-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+            {prodInfo ? prodInfo.map((product, index) => (
+                <div key={index}>
+                    <Card text={product.productName} price={product.productPrice} />
+                </div>
+            )) : 
+                <Loader />
+            }
+        </div>
     </>)
 }
 export default ProductCatalog;
