@@ -3,7 +3,8 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require("mongoose")
 const {ProductModel} = require('../models/products')
-
+app.use(express.json());
+app.use(cors());
 mongoose.connect(process.env.MONGO_CONNECTION)
 
 router.get('/', async (req, res) => {
