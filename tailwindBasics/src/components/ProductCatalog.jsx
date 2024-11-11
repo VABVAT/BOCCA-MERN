@@ -7,7 +7,7 @@ function ProductCatalog(){
     const prodInfo = Products.products;
     // console.log(Products);
     return(<>
-        <div className="mt-12 mb-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+        <div className="mt-12 mb-12 grid  place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
             {prodInfo ? prodInfo.map((product, index) => (
                 <div key={index}>
                     <Card text={product.productName} price={product.productPrice} />

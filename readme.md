@@ -28,6 +28,7 @@ This project is a **MERN (MongoDB, Express, React, Node.js) e-commerce website**
 - **Scroll Color Maintenance**: Maintained color consistency when scrolling, giving a smooth, polished look.
 - **Utility of Margin**: Learned that `margin` has greater control over element spacing than `justify-between` or other `justify` properties.
 - **Hidden Classes for Responsiveness**: Used `hidden`, `block`, and `flex` classes based on screen size (`md:hidden`, etc.) for responsive element display without `and` prefix conditions.
+- **Place items center**: items can be centered in grid using place-items-center
 
 ### Dynamic Content
 
