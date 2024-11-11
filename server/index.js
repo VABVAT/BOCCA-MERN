@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const app = new express()
+const app =  express()
 const {Productinfo} = require('./routes/productinfo')
 
 app.use(express.json())
