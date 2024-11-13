@@ -16,10 +16,36 @@ export default {
       },
       height: {
         '830' : '839px',
-        '395' : '280px'
+        '395' : '350px'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'], // Add Poppins as a custom font
+      },
+      gridTemplateColumns: {
+        16: 'repeat(16, minmax(0, 1fr))', // Defines a 16-column layout
+      },
+      gridTemplateRows: {
+        16: 'repeat(16, minmax(0, 1fr))', // Defines a 16-row layout
+      },
+      gridRowStart: {
+        '8': '8',
+        '9': '9',
+        '10': '10',
+        '11': '11',
+        '12': '12',
+        '13': '13',
+        '14': '14',
+        '15': '15',
+      },
+      gridColumnStart: {
+        '8': '8',
+        '9': '9',
+        '10': '10',
+        '11': '11',
+        '12': '12',
+        '13': '13',
+        '14': '14',
+        '15': '15',
       },
     },
   },
