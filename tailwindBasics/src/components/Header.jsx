@@ -17,7 +17,7 @@ function Header() {
             </Link>
 
             {/* Search Button and Searchbar */}
-            <div className="flex items-center md:ml-10">
+            <div className="flex  md:ml-10">
                 <button onClick={() => setVisible(!isVisible)}>
                     <img 
                         src={logo} 
@@ -47,7 +47,7 @@ function Header() {
                             Log in
                         </button>
                         <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
-                            Sign up
+                            Log out
                         </button>
                     </div>
                 )}
