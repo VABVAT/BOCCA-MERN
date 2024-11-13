@@ -10,18 +10,19 @@ function Header() {
     const [toggle, setToggle] = useState(false);
 
     return (
-        <div className="bg-white h-44 flex flex-col md:flex-row items-center justify-between p-4 md:px-10">
+        <div className="bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-between p-4 md:px-10">
             {/* Logo Link */}
-            <Link to="/" className="font-poppins font-bold text-4xl md:text-5xl">
-                BOCCA
-            </Link>
+
 
             {/* Search Button and Searchbar */}
-            <div className="flex  md:ml-10">
-                <button onClick={() => setVisible(!isVisible)}>
-                    <img 
-                        src={logo} 
-                        className={`transition-all duration-500 ${!isVisible ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'}`}
+            <div className="flex flex-wrap md:ml-10" >
+                <Link to="/" className="font-poppins font-bold text-4xl ml-auto mr-auto md:text-5xl">
+                    BOCCA
+                </Link>
+                <button className='ml-8' onClick={() => setVisible(!isVisible)}>
+                    <img
+                        src={logo}
+                        className={` transition-all duration-500 ${!isVisible ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'}`}
                         alt="search icon"
                     />
                 </button>
@@ -29,7 +30,7 @@ function Header() {
             </div>
 
             {/* Cart and User Icon with Dropdown */}
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
+            <div className="mr-auto ml-auto flex items-center space-x-6 mt-4 md:mt-0">
                 {/* Shopping Cart Button */}
                 <button className="w-8 h-8">
                     <img src={gc} alt="shopping cart logo" />
@@ -42,12 +43,12 @@ function Header() {
 
                 {/* Dropdown Menu */}
                 {toggle && (
-                    <div className="mt-8 absolute top-32 sm:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
+                    <div className="mt-8 absolute top-32 md:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
                         <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300">
                             Log in
                         </button>
                         <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
-                            Log out
+                            Sign up
                         </button>
                     </div>
                 )}
