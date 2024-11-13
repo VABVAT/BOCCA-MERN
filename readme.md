@@ -29,6 +29,7 @@ This project is a **MERN (MongoDB, Express, React, Node.js) e-commerce website**
 - **Utility of Margin**: Learned that `margin` has greater control over element spacing than `justify-between` or other `justify` properties.
 - **Hidden Classes for Responsiveness**: Used `hidden`, `block`, and `flex` classes based on screen size (`md:hidden`, etc.) for responsive element display without `and` prefix conditions.
 - **Place items center**: items can be centered in grid using place-items-center
+- **for drop-down**: use absolute and right=0 top=12 absolue , `learn` absolute and how to position  
 
 ### Dynamic Content
 

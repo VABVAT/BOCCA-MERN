@@ -1,25 +1,59 @@
 import Searchbar from './Searchbar.jsx';
 import logo from '/search.png';
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
-import gc from '/grocery-store.png'
-import user from '/user.png'
-function Header(){
+import { useState } from 'react';
+import gc from '/grocery-store.png';
+import user from '/user.png';
+
+function Header() {
     const [isVisible, setVisible] = useState(false);
-    return(
-        <div className='bg-white h-44 flex flex-row items-center justify-center md:justify-start flex-wrap md:flex-nowrap'> 
-        <Link to='/'className='font-poppins  font-bold text-5xl ml-0 md:ml-10'>
-       BOCCA
-       </Link>
-       <div>
-        <button onClick={() => (setVisible(true))}><img src={logo} className={`transition-all duration-500   ${!isVisible ? 'w-8 h-8 ml-16 opacity-100 mr-16' : 'w-0 h-0 opacity-0'}`}></img></button> 
-       </div>
-       <Searchbar Active={isVisible}/>
-       <div className='w-24 h-8 md:ml-auto md:mr-[8%] flex flex-row justify-between'>
-            <button className='w-8'> <img src={gc} alt="shopping cart logo" /> </button>
-            <button> <img className ='w-8 rounded-2xl' src={user} alt="" /></button>
-       </div>
-      </div>
-    )
+    const [toggle, setToggle] = useState(false);
+
+    return (
+        <div className="bg-white h-44 flex flex-col md:flex-row items-center justify-between p-4 md:px-10">
+            {/* Logo Link */}
+            <Link to="/" className="font-poppins font-bold text-4xl md:text-5xl">
+                BOCCA
+            </Link>
+
+            {/* Search Button and Searchbar */}
+            <div className="flex items-center md:ml-10">
+                <button onClick={() => setVisible(!isVisible)}>
+                    <img 
+                        src={logo} 
+                        className={`transition-all duration-500 ${!isVisible ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'}`}
+                        alt="search icon"
+                    />
+                </button>
+                <Searchbar Active={isVisible} />
+            </div>
+
+            {/* Cart and User Icon with Dropdown */}
+            <div className="flex items-center space-x-6 mt-4 md:mt-0">
+                {/* Shopping Cart Button */}
+                <button className="w-8 h-8">
+                    <img src={gc} alt="shopping cart logo" />
+                </button>
+
+                {/* User Profile and Dropdown */}
+                <button className="w-8 h-8" onClick={() => setToggle(!toggle)}>
+                    <img className="w-8 rounded-full" src={user} alt="User profile" />
+                </button>
+
+                {/* Dropdown Menu */}
+                {toggle && (
+                    <div className="mt-8 absolute top-32 sm:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
+                        <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300">
+                            Log in
+                        </button>
+                        <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
+                            Sign up
+                        </button>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
 }
+
 export default Header;
