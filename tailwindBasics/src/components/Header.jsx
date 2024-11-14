@@ -10,7 +10,7 @@ function Header() {
     const [toggle, setToggle] = useState(false);
 
     return (
-        <div className="bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-between p-4 md:px-10">
+        <div className="bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10">
             {/* Logo Link */}
 
 
@@ -22,7 +22,7 @@ function Header() {
                 <button className='ml-8' onClick={() => setVisible(!isVisible)}>
                     <img
                         src={logo}
-                        className={` transition-all duration-500 ${!isVisible ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'}`}
+                        className={` transition-all duration-1000 ${!isVisible ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'}`}
                         alt="search icon"
                     />
                 </button>
@@ -30,7 +30,7 @@ function Header() {
             </div>
 
             {/* Cart and User Icon with Dropdown */}
-            <div className="mr-auto ml-auto flex items-center space-x-6 mt-4 md:mt-0">
+            <div className=" md:ml-auto flex items-center space-x-6 mt-4 md:mt-0">
                 {/* Shopping Cart Button */}
                 <button className="w-8 h-8">
                     <img src={gc} alt="shopping cart logo" />

@@ -10,7 +10,7 @@ function ProductCatalog() {
         <div className="mt-12 mb-12 grid place-items-center  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {prodInfo ? prodInfo.map((product, index) => (
                 <div key={index}>
-                    <Card text={product.productName} price={product.productPrice} im={product.Image} />
+                    <Card text={product.productName} price={product.productPrice} im={product.Image} id={product._id}/>
                 </div>
             )) :
             <div className='lg:col-start-2 md:col-start-2' > 
