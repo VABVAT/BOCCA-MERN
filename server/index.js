@@ -6,11 +6,7 @@ const {signIn} = require('./routes/signIn')
 // const productinfo = require('./routes/productinfo')
 
 app.use(express.json())
-app.use(cors({
-    origin: 'https://bocca-mern.vercel.app', // Replace with your frontend URL
-    methods: 'GET,POST', // Define allowed methods
-    allowedHeaders: 'Content-Type', // Define allowed headers
-  }));
+app.use(cors());
 
 
 app.get('/', (req, res) => {

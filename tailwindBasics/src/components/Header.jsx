@@ -15,9 +15,9 @@ function Header() {
         navigate('/signIn')
     }
     const value = localStorage.getItem("token");
-    if(value) 
+    if(value) {
         loggedIn.current = true;
-
+    }
     return (
         <div className={`bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10`}>
             {/* Logo Link */}
