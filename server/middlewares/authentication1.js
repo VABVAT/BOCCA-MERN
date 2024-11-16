@@ -1,11 +1,7 @@
 const {userInfo} = require("../models/userInfo")
 const jwt = require("jsonwebtoken");
 const jwt_secret = process.env.JWT_SECRET
-const express = require("express");
-const app = express();
-const cors = require("cors")
-app.use(express.json());
-app.use(cors()) 
+
 
 async function authentication1(req, res, next){
     const username = req.body.userName;
