@@ -3,6 +3,7 @@ import p1 from '/p1.png'
 import tb from '/tb.png'
 import Textcontent from './Textcontent.jsx';
 import Banner from './Banner.jsx'
+import { useState } from 'react';
 
 function MainContent() {
     return (
@@ -17,6 +18,7 @@ function MainContent() {
                 <div className='flex ml-auto sm:ml-40 mr-auto sm:mr-0  items-center justify-center'><Textcontent /></div>
             </div>
             <Banner im={tb} />
+            
         </>
     )
 }

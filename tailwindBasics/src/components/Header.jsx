@@ -1,16 +1,25 @@
 import Searchbar from './Searchbar.jsx';
 import logo from '/search.png';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
 import gc from '/grocery-store.png';
 import user from '/user.png';
+import Logincmp from './Logincmp.jsx';
 
 function Header() {
     const [isVisible, setVisible] = useState(false);
     const [toggle, setToggle] = useState(false);
+    const loggedIn = useRef(false)
+    const navigate = useNavigate()
+    const goThere = () => {
+        navigate('/signIn')
+    }
+    const value = localStorage.getItem("token");
+    if(value) 
+        loggedIn.current = true;
 
     return (
-        <div className="bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10">
+        <div className={`bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10`}>
             {/* Logo Link */}
 
 
@@ -42,16 +51,16 @@ function Header() {
                 </button>
 
                 {/* Dropdown Menu */}
-                {toggle && (
+                {(toggle && !loggedIn.current) ? (
                     <div className="mt-8 absolute top-32 md:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
-                        <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300">
+                        <button onClick={goThere} className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300">
                             Log in
                         </button>
                         <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
                             Sign up
                         </button>
                     </div>
-                )}
+                ) : null}
             </div>
         </div>
     );

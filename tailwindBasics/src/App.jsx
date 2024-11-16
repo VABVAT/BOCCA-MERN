@@ -4,6 +4,7 @@ import './App.css'
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import ProductCatalog from './components/ProductCatalog.jsx';
+import Logincmp from './components/Logincmp.jsx';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<MainContent />}></Route>
           <Route path='/items' element={<ProductCatalog />}></Route>
+        </Route>
+        <Route path='/signIn' element={<Logincmp/>}>
+
         </Route>
       </Routes>
     </BrowserRouter>
@@ -26,7 +30,7 @@ function Layout() {
   return (
     <div className='bg-gradient-to-b from-gstart to-gend min-h-screen min-w-screen '>
       <Header />
-      <Outlet />
+        <Outlet />
       <Footer />
       <br />
       <br />
