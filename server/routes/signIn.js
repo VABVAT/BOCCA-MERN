@@ -6,11 +6,6 @@ const cors = require("cors")
 const {userInfo} = require("../models/userInfo")
 const authentication1 = require('../middlewares/authentication1');
 
-router.use(cors({
-    origin: 'https://bocca-mern.vercel.app', // Replace with your frontend URL
-    methods: 'GET,POST', // Define allowed methods
-    allowedHeaders: 'Content-Type', // Define allowed headers
-  }));
 
 mongoose.connect(process.env.MONGO_CONNECTION)
 
