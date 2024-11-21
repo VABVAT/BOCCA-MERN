@@ -23,11 +23,14 @@ function Header() {
         if(!token){
             loggedIn.current = false;
         }
+        else{
         const decodedToken = jwtDecode(token);
         const currTime = Date.now() / 1000;
         console.log(decodedToken.exp);
         loggedIn.current = currTime > decodedToken.exp;
+        }
         }, [])
+        
     return (
         <div className={`bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10`}>
             {/* Logo Link */}
