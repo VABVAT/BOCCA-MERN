@@ -1,10 +1,10 @@
 import Searchbar from './Searchbar.jsx';
 import logo from '/search.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gc from '/grocery-store.png';
 import user from '/user.png';
-import Logincmp from './Logincmp.jsx';
+import {jwtDecode} from 'jwt-decode';
 
 function Header() {
     const [isVisible, setVisible] = useState(false);
@@ -15,9 +15,19 @@ function Header() {
         navigate('/signIn')
     }
     const value = localStorage.getItem("token");
-    if(value) {
+    if(value){
         loggedIn.current = true;
     }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(!token){
+            loggedIn.current = false;
+        }
+        const decodedToken = jwtDecode(token);
+        const currTime = Date.now() / 1000;
+        console.log(decodedToken.exp);
+        loggedIn.current = currTime > decodedToken.exp;
+        }, [])
     return (
         <div className={`bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10`}>
             {/* Logo Link */}
