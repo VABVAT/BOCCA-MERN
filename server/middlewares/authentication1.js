@@ -10,7 +10,7 @@ async function authentication1(req, res, next){
         Username: username
     })
     if(user && user.Password === password){
-        const token = jwt.sign({id: user.__id}, jwt_secret, {expiresIn : '2h'})
+        const token = jwt.sign({id: user._id}, jwt_secret, {expiresIn : '2h'})
         req.body.token = token;
         next();
     }else{
