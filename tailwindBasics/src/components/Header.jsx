@@ -4,33 +4,38 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import gc from '/grocery-store.png';
 import user from '/user.png';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 function Header() {
     const [isVisible, setVisible] = useState(false);
     const [toggle, setToggle] = useState(false);
     const loggedIn = useRef(false)
+    const userName = useRef("")
     const navigate = useNavigate()
     const goThere = () => {
         navigate('/signIn')
     }
+    // ! to do
+    async function getName(token) {
+        
+    }
     const value = localStorage.getItem("token");
-    if(value){
+    if (value) {
         loggedIn.current = true;
     }
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if(!token){
+        if (!token) {
             loggedIn.current = false;
         }
-        else{
-        const decodedToken = jwtDecode(token);
-        const currTime = Date.now() / 1000;
-        console.log(decodedToken.exp);
-        loggedIn.current = currTime > decodedToken.exp;
+        else {
+            const decodedToken = jwtDecode(token);
+            const currTime = Date.now() / 1000;
+            console.log(decodedToken.exp);
+            loggedIn.current = currTime > decodedToken.exp;
         }
-        }, [])
-        
+    }, [])
+
     return (
         <div className={`bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10`}>
             {/* Logo Link */}
@@ -72,6 +77,11 @@ function Header() {
                         <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
                             Sign up
                         </button>
+                    </div>
+                ) : null}
+                {(toggle && loggedIn.current) ? (
+                    <div className="mt-8 absolute top-32 md:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
+                        You are Logged in
                     </div>
                 ) : null}
             </div>
