@@ -43,7 +43,7 @@ function CartPage(){
         </button>
     </div>
     <div className="col-start-4 col-end-9 overflow-x-hidden   row-start-4 row-end-10">
-    {prods.map((curr) => (<CartCard im={curr.Image} text={curr.productName} price={curr.productPrice}/>))}
+    {prods.map((curr) => (curr ? <CartCard im={curr.image} text={curr.name} price={curr.price}/> : null))}
     </div>
     
     

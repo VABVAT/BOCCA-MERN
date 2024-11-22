@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
     // console.log(user.cart)
     const arr = await Promise.all(
         user.cart.map(async (curr) => {
-        if(!curr) return null
+        
         const product = await ProductModel.findOne({
             _id : curr
         }) 
