@@ -46,7 +46,7 @@ function Header() {
             if(currTime > decodedToken.exp){
                 localStorage.removeItem('token');
             }
-            }, 1000)
+            }, 2000)
         }
     }, [])
 
