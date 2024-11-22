@@ -37,8 +37,8 @@ function Header() {
             loggedIn.current = false;
         }
         else {
-            setInterval(() => {
-                const decodedToken = jwtDecode(token);
+            const interval = setInterval(() => {
+            const decodedToken = jwtDecode(token);
             const currTime = Date.now() / 1000;
             console.log(decodedToken.exp);
             console.log(currTime)
@@ -46,7 +46,10 @@ function Header() {
             if(currTime > decodedToken.exp){
                 localStorage.removeItem('token');
             }
-            }, 2000)
+            return () => {
+                clearInterval(interval)
+            }
+            }, 1000)
         }
     }, [])
 
