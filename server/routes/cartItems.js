@@ -18,10 +18,11 @@ router.post("/", async (req, res) => {
     )
     if(!user) res.status(400).json({error : "no user found"})
     else {
-    // console.log(user.cart)
+    // console.log(validItems)
+    const validItems = user.cart.filter(curr => curr !== null);
     const arr = await Promise.all(
-        user.cart.map(async (curr) => {
-        
+        validItems.map(async (curr) => {
+        if(!curr) return null
         const product = await ProductModel.findOne({
             _id : curr
         }) 
