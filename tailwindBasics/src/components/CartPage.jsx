@@ -33,7 +33,7 @@ function CartPage(){
         }
         getItems()        
     }, [])
-    
+    console.log(prods)
 
 
     return <div className="grid grid-cols-12 grid-rows-12  min-w-screen h-screen ">
