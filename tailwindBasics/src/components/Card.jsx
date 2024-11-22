@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 function Card(props){
     const uniqueId = useRef("");
     uniqueId.current = props.id;
+    
     async function addToCart() {
         if(!localStorage.getItem('token')) return
         const cart = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
