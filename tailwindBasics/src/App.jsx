@@ -5,6 +5,7 @@ import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import ProductCatalog from './components/ProductCatalog.jsx';
 import Logincmp from './components/Logincmp.jsx';
+import CartPage from './components/CartPage.jsx';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Route path='/items' element={<ProductCatalog />}></Route>
         </Route>
         <Route path='/signIn' element={<Logincmp/>}>
-
         </Route>
+        <Route path='/Cart' element={<CartPage/>}></Route>
       </Routes>
     </BrowserRouter>
 

@@ -15,10 +15,18 @@ function Header() {
     const goThere = () => {
         navigate('/signIn')
     }
+    const goToCart = () => {
+        if(loggedIn.current === true){
+            navigate('/Cart')
+        }else{
+            navigate('/signIn')
+        }
+    }
     // ! to do
     async function getName(token) {
         
     }
+
     const value = localStorage.getItem("token");
     if (value) {
         loggedIn.current = true;
@@ -29,10 +37,16 @@ function Header() {
             loggedIn.current = false;
         }
         else {
-            const decodedToken = jwtDecode(token);
+            setInterval(() => {
+                const decodedToken = jwtDecode(token);
             const currTime = Date.now() / 1000;
             console.log(decodedToken.exp);
+            console.log(currTime)
             loggedIn.current = currTime > decodedToken.exp;
+            if(currTime > decodedToken.exp){
+                localStorage.removeItem('token');
+            }
+            }, 1000)
         }
     }, [])
 
@@ -59,7 +73,7 @@ function Header() {
             {/* Cart and User Icon with Dropdown */}
             <div className=" md:ml-auto flex items-center space-x-6 mt-4 md:mt-0">
                 {/* Shopping Cart Button */}
-                <button className="w-8 h-8">
+                <button onClick={goToCart} className="w-8 h-8">
                     <img src={gc} alt="shopping cart logo" />
                 </button>
 
