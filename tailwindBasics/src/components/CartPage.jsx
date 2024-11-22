@@ -10,25 +10,7 @@ function CartPage(){
         </button>
     </div>
     <div className="col-start-4 col-end-9 overflow-x-hidden   row-start-4 row-end-10">
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />
-    <br />
-    <CartCard />    
+    <CartCard im={la}/>   
     </div>
     
     
