@@ -43,7 +43,7 @@ function Header() {
             console.log(decodedToken.exp);
             console.log(currTime)
             loggedIn.current = currTime < decodedToken.exp;
-            if(currTime < decodedToken.exp){
+            if(currTime > decodedToken.exp){
                 localStorage.removeItem('token');
             }
             return () => {
