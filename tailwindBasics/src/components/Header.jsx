@@ -42,8 +42,8 @@ function Header() {
             const currTime = Date.now() / 1000;
             console.log(decodedToken.exp);
             console.log(currTime)
-            loggedIn.current = currTime > decodedToken.exp;
-            if(currTime > decodedToken.exp){
+            loggedIn.current = currTime < decodedToken.exp;
+            if(currTime < decodedToken.exp){
                 localStorage.removeItem('token');
             }
             return () => {
