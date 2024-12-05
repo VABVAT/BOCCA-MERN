@@ -11,7 +11,7 @@ function CartCard(props){
         const response = await fetch("https://bocca-mern-gis9.vercel.app/delete", {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
-            body: JSONstringify({
+            body: JSON.stringify({
                 uid : jwtDecode(localStorage.getItem('token')).id,
                 pid : productId.current
             })
