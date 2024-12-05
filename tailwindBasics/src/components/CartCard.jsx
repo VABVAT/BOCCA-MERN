@@ -1,11 +1,26 @@
+import { useRef } from "react"
+
+function deleteItem(){
+    
+}
+
 function CartCard(props){
+
+    const productId = useRef("");
+    productId.current = props.id
+    
     return(
         <div className="flex flex-row  justify-between around items-center ml-4 overflow-y-hidden w-[95%] h-20 border-2 border-black ">
-            <img src={props.im} alt="image address" className="basis-3 h-[90%] hover:h-[100%] rounded-"/>
-            <div className="font-poppins mr-8">
+          <div className=" h-[90%] w-[20%]  ml-4 flex flex-row "> 
+            <img src={props.im} alt="image address" className="h-[90%]"/>
+          </div>
+            <div className="font-poppins mr-8 flex flex-row items-left w-[20%]">
                 {props.text}
                 <br />
                 {props.price}
+            </div>
+            <div>
+                <button className="mr-4" onClick={deleteItem} >Delete</button>
             </div>
         </div>
     )

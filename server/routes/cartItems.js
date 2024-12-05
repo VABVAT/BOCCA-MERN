@@ -30,7 +30,8 @@ router.post("/", async (req, res) => {
         return {
             name : product.productName,
             price : product.productPrice,
-            image : product.Image
+            image : product.Image,
+            id : product._id
         }
         }
     )

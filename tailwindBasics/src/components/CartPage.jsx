@@ -36,7 +36,6 @@ function CartPage(){
         }
         getItems()        
     }, [])
-    console.log(prods)
 
 
     return <div className="grid grid-cols-12 grid-rows-12  min-w-screen h-screen ">
@@ -45,11 +44,9 @@ function CartPage(){
             <img src={la} className="w-8"/>
         </button>
     </div>
-    <div className="col-start-4 col-end-9 overflow-x-hidden   row-start-4 row-end-10">
-    {loader.current ? prods.map((curr) => (curr ? <CartCard im={curr.image} text={curr.name} price={curr.price}/> : null)) : <Loader />}
+    <div className="col-start-2 col-end-11 overflow-x-hidden   row-start-4 row-end-10">
+    {loader.current  ? prods.map((curr) => (curr ? <CartCard productArray={prods} setterFunction={setProds} id={curr.id} im={curr.image} text={curr.name} price={curr.price}/> : null)) : <div className="ml-40"><Loader /> </div>}
     </div>
-    
-    
     </div>
 }
 
