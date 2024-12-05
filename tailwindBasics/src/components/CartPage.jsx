@@ -7,7 +7,7 @@ import { jwtDecode } from "jwt-decode";
 import Loader from "./Loader";
 function CartPage(){
     const navigate = useNavigate();
-    const [prods, setProds] = useState();
+    const [prods, setProds] = useState([]);
     const loader = useRef(false)
     useEffect(() => {
         const interval = setInterval(() => {
@@ -32,7 +32,16 @@ function CartPage(){
             })
             const response = await data.json()
             loader.current = true;
-            setProds(response.cart)  
+            const newArr = [];
+            response.cart.forEach(element => {
+                const existingContent = newArr.find(user => (user.content.id === element.id)); 
+                if(existingContent) { existingContent.quantity++} 
+                else{ 
+                    newArr.push({content: element, quantity : 1}) 
+                }
+            });
+            setProds(newArr)  
+            // console.log(newArr)
         }
         getItems()        
     }, [])
@@ -45,7 +54,7 @@ function CartPage(){
         </button>
     </div>
     <div className="col-start-2 col-end-11 overflow-x-hidden   row-start-4 row-end-10">
-    {loader.current  ? prods.map((curr) => (curr ? <CartCard productArray={prods} setterFunction={setProds} id={curr.id} im={curr.image} text={curr.name} price={curr.price}/> : null)) : <div className="ml-40"><Loader /> </div>}
+    {loader.current  ? prods.map((curr, _) => (curr ? <CartCard key={_} id={curr.content.id} im={curr.content.image} text={curr.content.name} price={curr.content.price} quantity={curr.quantity}/> : null)) : <div className="absolute left-[50%]"><Loader /> </div>}
     </div>
     </div>
 }

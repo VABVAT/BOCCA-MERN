@@ -7,7 +7,7 @@ const userInfo = new Schema({
     Password: String,
     cart:[
         {
-            type:ObjectId
+            type:ObjectId,
         }
     ]
 })
