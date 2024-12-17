@@ -1,12 +1,15 @@
 import { useRef } from "react";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 function Card(props){
     const uniqueId = useRef("");
     uniqueId.current = props.id;
-    
+    const navigate = useNavigate();
     async function addToCart() {
-        if(!localStorage.getItem('token')) return
+        if(!localStorage.getItem('token')){
+            navigate('/signIn')
+        }
         const cart = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
             method: "POST",
             headers: {"Content-Type" : "application/json"},

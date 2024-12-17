@@ -17,8 +17,9 @@ function App() {
           <Route index element={<MainContent />}></Route>
           <Route path='/items' element={<ProductCatalog />}></Route>
         </Route>
-        <Route path='/signIn' element={<Logincmp/>}>
+        <Route path='/signIn' element={<Logincmp mode="0"/>}>
         </Route>
+        <Route path='/signUp' element={<Logincmp mode="1"/>}></Route>
         <Route path='/Cart' element={<CartPage/>}></Route>
       </Routes>
     </BrowserRouter>

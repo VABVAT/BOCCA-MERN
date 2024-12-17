@@ -15,6 +15,9 @@ function Header() {
     const goThere = () => {
         navigate('/signIn')
     }
+    const signUpNav = () => {
+        navigate('/signUp')
+    }
     const goToCart = () => {
         if(loggedIn.current === true){
             navigate('/Cart')
@@ -23,13 +26,17 @@ function Header() {
         }
     }
     // ! to do
-    async function getName(token) {
-        
+    function logOut() {
+        localStorage.removeItem('token');
+        loggedIn.current = false;
+        window.location.reload();
     }
 
     const value = localStorage.getItem("token");
     if (value) {
         loggedIn.current = true;
+    }else{
+        loggedIn.current = false;
     }
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -40,8 +47,6 @@ function Header() {
             const interval = setInterval(() => {
             const decodedToken = jwtDecode(token);
             const currTime = Date.now() / 1000;
-            console.log(decodedToken.exp);
-            console.log(currTime)
             loggedIn.current = currTime < decodedToken.exp;
             if(currTime > decodedToken.exp){
                 localStorage.removeItem('token');
@@ -92,14 +97,14 @@ function Header() {
                         <button onClick={goThere} className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300">
                             Log in
                         </button>
-                        <button className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
+                        <button onClick={signUpNav} className="p-2 w-full rounded-md hover:bg-black hover:text-white font-poppins transition duration-300 mt-1">
                             Sign up
                         </button>
                     </div>
                 ) : null}
                 {(toggle && loggedIn.current) ? (
-                    <div className="mt-8 absolute top-32 md:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
-                        You are Logged in
+                    <div className="mt-8 transform-all duration-500  absolute top-32 hover:bg-black hover:text-white md:top-20 mt-2 bg-white shadow-lg rounded-md p-2 text-center">
+                        <button onClick={logOut}> Log out </button>
                     </div>
                 ) : null}
             </div>

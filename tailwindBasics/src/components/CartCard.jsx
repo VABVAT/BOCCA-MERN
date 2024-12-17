@@ -20,17 +20,18 @@ function CartCard(props){
     }
     
     return(
-        <div className="flex flex-row  justify-between around items-center ml-4 overflow-y-hidden w-[95%] h-20 border-2 border-black ">
-          <div className=" h-[90%] w-[20%]  ml-4 flex flex-row "> 
+        <div className="flex flex-col sm:flex-row  justify-between sm:justify-between around items-center content-center ml-4 overflow-y-hidden w-[95%] sm:h-20 border-t-2 border-b-2 border-black ">
+          <div className=" h-[90%] w-[46%]  ml-4 flex flex-row flex-wrap justify-between "> 
             <img src={props.im} alt="image address" className="h-[90%]"/>
-          </div>
-            <div className="font-poppins mr-8 flex flex-row items-left w-[20%]">
+            <div className="font-poppins  text-xs sm:text-l mr-8 flex flex-row items-left w-[100%] sm:w-[50%] mt-4">
                 {props.text}
                 <br />
                 {props.price}
             </div>
+          </div>
+
             <div>
-                <button className="mr-4" onClick={deleteItem} >Delete</button>
+                <button className="mr-4" onClick={deleteItem} >delete</button>
             </div>
             <div className="mr-4">
                 quantity : {props.quantity}

@@ -53,7 +53,7 @@ function CartPage(){
             <img src={la} className="w-8"/>
         </button>
     </div>
-    <div className="col-start-2 col-end-11 overflow-x-hidden   row-start-4 row-end-10">
+    <div className="col-start-1 col-end-8 overflow-x-hidden  row-start-4 row-end-13">
     {loader.current  ? prods.map((curr, _) => (curr ? <CartCard key={_} id={curr.content.id} im={curr.content.image} text={curr.content.name} price={curr.content.price} quantity={curr.quantity}/> : null)) : <div className="absolute left-[50%]"><Loader /> </div>}
     </div>
     </div>

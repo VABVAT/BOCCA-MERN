@@ -9,7 +9,8 @@ const userInfo = new Schema({
         {
             type:ObjectId,
         }
-    ]
+    ],
+    Balance: Number
 })
 
 const userModel = mongoose.model("userInfo", userInfo);
