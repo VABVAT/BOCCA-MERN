@@ -1,9 +1,10 @@
 const express = require("express")
 const router = express.Router();
 require('dotenv').config();
-import { userInfo } from "../models/userInfo";
+const {userInfo} = require("../models/userInfo")
+const mongoose = require('mongoose')
 
-mongoose.connect(process.env.MONGO_SECRET);
+mongoose.connect(process.env.MONGO_CONNECTION);
 
 router.post('/', async (req, res) => {
     const userName = req.body.userName;
