@@ -23,7 +23,7 @@ const Logincmp = (props) => {
       })
       const resp = await response.json();
       if(resp.error){
-        serError(true)
+        setError(true)
       }else{
         navigate('/')
       }
