@@ -23,6 +23,9 @@ function Card(props){
 
     async function Buy() {
         const price = (props.price.split('$')[1]);
+        if(!localStorage.getItem('token')){
+            navigate('/signIn')
+        }
         // !todo: function which goes to backEnd and changes the balance 
         const response = await fetch("https://bocca-mern-gis9.vercel.app/changeBalance", {
             method: "POST",
