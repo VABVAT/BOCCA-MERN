@@ -39,25 +39,28 @@ function Header() {
     }else{
         loggedIn.current = false;
     }
-
-    useEffect(() => {
-        async function getBal(uid){
-            const response = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
-                method : "POST",
-                headers: {"Content-Type" : "application/json"},
-                body: JSON.stringify({
-                    id: uid
-                })
+    async function getBal(uid){
+        const response = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
+            method : "POST",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify({
+                id: uid
             })
-            const respo = await response.json();
-            return respo.Balance;
-        }
+        })
+        const respo = await response.json();
+        return respo.Balance;
+    }
+    useEffect(() => {
+
         if(loggedIn.current){
             const token = localStorage.getItem('token')
             const decodedToken = jwtDecode(token)
             const id = decodedToken.id;
-            const balance = getBal(id)
-            console.log(balance)
+            async function fetchBal() {
+                const balance = await getBal(id)
+                console.log(balance)
+            }
+            fetchBal()
         }
     }, [loggedIn.current])
 
