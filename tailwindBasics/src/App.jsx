@@ -6,11 +6,12 @@ import Header from './components/Header.jsx';
 import ProductCatalog from './components/ProductCatalog.jsx';
 import Logincmp from './components/Logincmp.jsx';
 import CartPage from './components/CartPage.jsx';
+import BuyingContext from './components/BuyingContext.jsx';
 
 function App() {
   return (
 
-
+  <BuyingContext>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -23,8 +24,7 @@ function App() {
         <Route path='/Cart' element={<CartPage/>}></Route>
       </Routes>
     </BrowserRouter>
-
-
+    </BuyingContext>
   )
 }
 

@@ -1,15 +1,16 @@
 import Searchbar from './Searchbar.jsx';
 import logo from '/search.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import gc from '/grocery-store.png';
 import user from '/user.png';
 import { jwtDecode } from 'jwt-decode';
+import { buyingContext } from './BuyingContext.jsx';
 
 function Header() {
     const [isVisible, setVisible] = useState(false);
     const [toggle, setToggle] = useState(false);
-    const [Bal, setBal] = useState();
+    const {Bal, setBal} = useContext(buyingContext);
     const loggedIn = useRef(false)
     const userName = useRef("")
     const userBalance = useRef()
@@ -63,7 +64,7 @@ function Header() {
             }
             fetchBal()
         }
-    }, [loggedIn.current])
+    }, [loggedIn.current, Bal])
 
     useEffect(() => {
         const token = localStorage.getItem('token');
