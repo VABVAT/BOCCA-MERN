@@ -43,7 +43,7 @@ function Header() {
     useEffect(() => {
         async function getBal(uid) {
             const response = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
-                METHOD : "POST",
+                method : "POST",
                 headers: {"Content-Type" : "application/json"},
                 body:{
                     id: uid
@@ -56,7 +56,7 @@ function Header() {
             const token = localStorage.getItem('token')
             const decodedToken = jwtDecode(token)
             const id = decodedToken.id;
-            const balance = await getBal(id)
+            const balance = getBal(id)
             console.log(balance)
         }
     }, [loggedIn.current])
