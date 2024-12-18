@@ -7,6 +7,7 @@ const {addToCart} = require('./routes/addToCart')
 const {cartItems} = require('./routes/cartItems')
 const {deleteFromCart} = require('./routes/deleteFromCart')
 const {signUp} = require('./routes/signUp')
+const {changeBalance} = require('./routes/changeBalance')
 // const productinfo = require('./routes/productinfo')
 
 app.use(express.json())
@@ -28,5 +29,7 @@ app.use('/cartItems', cartItems)
 app.use('/delete', deleteFromCart)
 
 app.use('/signUp', signUp)
+
+app.use('/changeBalance', changeBalance)
 
 app.listen(3000);
