@@ -41,13 +41,13 @@ function Header() {
     }
 
     useEffect(() => {
-        async function getBal(uid) {
+        async function getBal(uid){
             const response = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
                 method : "POST",
                 headers: {"Content-Type" : "application/json"},
-                body:{
+                body: JSON.stringify({
                     id: uid
-                }
+                })
             })
             const respo = await response.json();
             return respo.Balance;
