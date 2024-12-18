@@ -62,7 +62,7 @@ const Logincmp = (props) => {
         </div>
         <br />
         <div className=" flex flex-row justify-center text-4xl mb-4  poppins ">
-             JOURNEY BEGINS
+            JOURNEY BEGINS
         </div>
       </div>
       <div className="basis-full md:basis-1/2 bg-black flex flex-row justify-center items-center">

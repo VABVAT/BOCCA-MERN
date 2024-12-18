@@ -39,6 +39,28 @@ function Header() {
     }else{
         loggedIn.current = false;
     }
+
+    useEffect(() => {
+        async function getBal(uid) {
+            const response = await fetch("https://bocca-mern-gis9.vercel.app/addToCart", {
+                METHOD : "POST",
+                headers: {"Content-Type" : "application/json"},
+                body:{
+                    id: uid
+                }
+            })
+            const respo = await response.json();
+            return respo.Balance;
+        }
+        if(loggedIn.current){
+            const token = localStorage.getItem('token')
+            const decodedToken = jwtDecode(token)
+            const id = decodedToken.id;
+            const balance = getBal(id)
+            console.log(balance)
+        }
+    }, [loggedIn.current])
+
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -112,6 +134,7 @@ function Header() {
                         <button onClick={logOut}> Log out </button>
                     </div>
                 ) : null}
+                {(loggedIn.current) ? (<div> Available Balance: </div> ): null}
             </div>
         </div>
     );

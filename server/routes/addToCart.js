@@ -14,10 +14,12 @@ router.post('/', async (req, res) => {
     const user = await userInfo.findOne({
         _id : id
     })
-    if(user){
-        user.cart.push(productId)
-        await user.save();
-        res.status(200).json({cart: user.cart});
+    if(!productId){
+        res.status(200).json({Balance: user.Balance});
+    }else if(user && productId){
+         user.cart.push(productId)
+         await user.save();
+         res.status(200).json({cart: user.cart});
         // ! this is important as i am not doing user.updateOne
     }
 })
