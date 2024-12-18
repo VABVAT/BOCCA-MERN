@@ -11,6 +11,7 @@ function Header() {
     const [toggle, setToggle] = useState(false);
     const loggedIn = useRef(false)
     const userName = useRef("")
+    const userBalance = useRef()
     const navigate = useNavigate()
     const goThere = () => {
         navigate('/signIn')
@@ -59,6 +60,8 @@ function Header() {
         }
     }, [])
 
+
+
     return (
         <div className={`bg-white h-44 flex flex-col  flex-wrap md:flex-row flex-wrap items-center justify-center p-4 md:px-10`}>
             {/* Logo Link */}
@@ -78,9 +81,11 @@ function Header() {
                 </button>
                 <Searchbar Active={isVisible} />
             </div>
-
+            {loggedIn.current ? <div>
+                
+            </div> : null}
             {/* Cart and User Icon with Dropdown */}
-            <div className=" md:ml-auto flex items-center space-x-6 mt-4 md:mt-0">
+            <div className="md:ml-auto flex items-center space-x-6 mt-4 md:mt-0">
                 {/* Shopping Cart Button */}
                 <button onClick={goToCart} className="w-8 h-8">
                     <img src={gc} alt="shopping cart logo" />

@@ -12,11 +12,24 @@ const Logincmp = (props) => {
       navigate('/')
     }
     async function sendN(){
+      const response = await fetch("https://bocca-mern-gis9.vercel.app/signUp", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body: JSON.stringify({
+          userName : ref1.current.value,
+          passWord : ref2.current.value
+        })
+      })
+      const resp = await response.json();
+      if(resp.error){
+      }else{
+        navigate('/')
+      }
 
     }
 
     async function sendR(){
-      console.log(ref1.current.value)
+      // console.log(ref1.current.value)
       setError(false)
         const response = await fetch("https://bocca-mern-gis9.vercel.app/signIn", {
             method: "POST",
