@@ -9,6 +9,7 @@ import { jwtDecode } from 'jwt-decode';
 function Header() {
     const [isVisible, setVisible] = useState(false);
     const [toggle, setToggle] = useState(false);
+    const [Bal, setBal] = useState();
     const loggedIn = useRef(false)
     const userName = useRef("")
     const userBalance = useRef()
@@ -58,7 +59,7 @@ function Header() {
             const id = decodedToken.id;
             async function fetchBal() {
                 const balance = await getBal(id)
-                console.log(balance)
+                setBal(balance)
             }
             fetchBal()
         }
@@ -137,7 +138,7 @@ function Header() {
                         <button onClick={logOut}> Log out </button>
                     </div>
                 ) : null}
-                {(loggedIn.current) ? (<div> Available Balance: </div> ): null}
+                {(loggedIn.current) ? (<div className="font-bold"> Available Balance: ${Bal}</div> ): null}
             </div>
         </div>
     );
