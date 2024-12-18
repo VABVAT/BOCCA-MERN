@@ -67,7 +67,7 @@ const Logincmp = (props) => {
         
         <div className="basis-1/2 bg-white h-[58%] flex flex-row rounded-xl flex-wrap">
             <div className="basis-full   flex flex-row h-[20%]">
-               <div className="h-[100%] content-center font-poppins justify-center text-center  text-2xl font-medium basis-full"> Login Here </div> 
+               { <div className="h-[100%] content-center font-poppins justify-center text-center  text-2xl font-medium basis-full"> { props.mode ==='0' ? <span>Login Here </span> : <span> Sign up </span>} </div> }
             </div>
 
             <div className="basis-full flex flex-row  items-center  h-[20%]">
@@ -81,7 +81,10 @@ const Logincmp = (props) => {
               {error && props.mode === '1' ? <div className="w-[100%] font-bold text-center text-red-500">User exists</div> : null}
             </div>
             <div className="basis-full  h-[20%] flex flex-row justify-center mb-3" >
-              {props.mode === "0" ? <button onClick={sendR} className="transform-all w-[90%]  h-[50%] mt-2 duration-500 bg-black  rounded-xl text-white p-2">Login</button> : <button onClick={sendN} className="transform-all w-[90%]  h-[50%] mt-2 duration-500 bg-black  rounded-xl text-white p-2">Sign up</button>} 
+              {props.mode === "0" ? <button onClick={sendR} className="transform-all w-[90%]  h-[50%] mt-2 duration-500 bg-black hover:h-[60%] rounded-xl text-white p-2">Login</button> : <button onClick={sendN} className="transform-all duration-500 w-[90%]  h-[50%] mt-2  bg-black hover:h-[60%] rounded-xl text-white p-2">Sign up</button>} 
+            </div>
+            <div className="ml-4 mb-8">
+              {props.mode === '0' ? <span> Dont have an account? <a href="/signUp" className="text-blue-300"> Sign up </a> now</span> : <span> Have an account? <a href="/signIn" className="text-blue-300"> Log in </a> now</span>}
             </div>
         </div>
         </div>
