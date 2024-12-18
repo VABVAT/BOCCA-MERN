@@ -5,7 +5,7 @@ import Textcontent from './Textcontent.jsx';
 import Banner from './Banner.jsx'
 import Pb from '/Pb.jpeg'
 import { useState } from 'react';
-import Slidebar from './SLidebar.jsx'
+import Slidebar from './Slidebar.jsx'
 
 function MainContent() {
     return (
