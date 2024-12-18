@@ -3,7 +3,7 @@ const router = express.Router();
 require('dotenv').config();
 const {userInfo} = require("../models/userInfo")
 const mongoose = require('mongoose')
-const  auth2 =  require('../middlewares/authentication1')
+const  auth2 =  require('../middlewares/auth2')
 
 mongoose.connect(process.env.MONGO_CONNECTION);
 
