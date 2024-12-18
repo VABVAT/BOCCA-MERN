@@ -12,6 +12,7 @@ const Logincmp = (props) => {
       navigate('/')
     }
     async function sendN(){
+      setError(false)
       const response = await fetch("https://bocca-mern-gis9.vercel.app/signUp", {
         method : "POST",
         headers : {"Content-Type" : "application/json"},
@@ -22,6 +23,7 @@ const Logincmp = (props) => {
       })
       const resp = await response.json();
       if(resp.error){
+        serError(true)
       }else{
         navigate('/')
       }
@@ -76,6 +78,7 @@ const Logincmp = (props) => {
             </div>
             <div className="w-[100%] text-center" >
               {error && props.mode === '0' ? <div className="w-[100%] font-bold text-center text-red-500">Incorrect credentials</div> : null}
+              {error && props.mode === '1' ? <div className="w-[100%] font-bold text-center text-red-500">User exists</div> : null}
             </div>
             <div className="basis-full  h-[20%] flex flex-row justify-center mb-3" >
               {props.mode === "0" ? <button onClick={sendR} className="transform-all w-[90%]  h-[50%] mt-2 duration-500 bg-black  rounded-xl text-white p-2">Login</button> : <button onClick={sendN} className="transform-all w-[90%]  h-[50%] mt-2 duration-500 bg-black  rounded-xl text-white p-2">Sign up</button>} 
