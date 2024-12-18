@@ -51,16 +51,19 @@ const Logincmp = (props) => {
     }
 
   return (
-    <div className="flex flex-row h-screen bg-gradient-to-b from-gstart to-gend  min-w-screen">
-      <div className="basis-0 md:basis-1/2 bg-white ">
+    <div className="flex flex-row min-h-screen bg-gradient-to-b from-gstart to-gend  min-w-screen">
+      <div className="basis-0 md:basis-1/2 bg-white h-full">
         <div className="basis-full h-[8%] mt-1  flex flex-row">
           <button onClick={goBack} className=" hidden md:block flex-start ml-2 basis-2/12"><img src={back} className="h-[80%]"  alt="" /></button>
         </div>
         <br />
         <div className="flex h-[89%] flex-row align-center items-center justify-center" >
-              <img src={Pb} className="w-[60%] h-[70%] rounded-xl"  />
+              <img src={Pb} className="w-[60%] h-[70%] rounded-xl"/>
         </div>
-        
+        <br />
+        <div className=" flex flex-row justify-center text-4xl mb-4  poppins ">
+             JOURNEY BEGINS
+        </div>
       </div>
       <div className="basis-full md:basis-1/2 bg-black flex flex-row justify-center items-center">
         <button className="absolute md:hidden w-10 mt-2 text-white top-4 left-4" onClick={goBack} > <img src={la} alt="" /></button>
