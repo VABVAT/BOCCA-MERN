@@ -56,7 +56,7 @@ function Header() {
             const token = localStorage.getItem('token')
             const decodedToken = jwtDecode(token)
             const id = decodedToken.id;
-            const balance = getBal(id)
+            const balance = await getBal(id)
             console.log(balance)
         }
     }, [loggedIn.current])
